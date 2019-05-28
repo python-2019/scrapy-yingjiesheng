@@ -16,7 +16,7 @@ class yingjieshengScrapy(scrapy.Spider):
     allowed_domains = ["yingjiesheng.com"]
     host = "http://www.yingjiesheng.com"
     start_urls = (
-            host + "/commend-fulltime-1.html"
+        host+"/commend-fulltime-1.html",
     )
 
     def parse(self, response):
