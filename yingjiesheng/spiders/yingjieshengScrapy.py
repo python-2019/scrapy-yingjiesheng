@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 import copy
+import time
 
 import scrapy
 
@@ -25,16 +26,16 @@ class yingjieshengScrapy(scrapy.Spider):
         # 遍历拉取信息
         for tr in tr_list:
             item = YingjieshengItem()
-            item['city'] = tr.xpath["./td/a/span[@style='color: #008000;']/text()"].extract_first()
-            item['post'] = tr.xpath["./td/a/text()"].extract_first()
-            item['href'] = tr.xpath["./td/a/@href"].extract_first()
-            item['date'] = tr.xpath["./td[2]/text()"].extract_first()
+            item['city'] = tr.xpath("./td/a/span[@style='color: #008000;']/text()").extract_first()
+            item['post'] = tr.xpath("./td/a/text()").extract()
+            item['href'] = self.host+tr.xpath("./td/a/@href").extract_first()
+            item['date'] = tr.xpath("./td[2]/text()").extract_first()
             yield item
         #  翻页
         next_page = response.xpath("//a[contains(text(),'下一页')]/@href").extract_first()
         if next_page is not None:
             next_page_url = self.host + next_page
-            print(next_page_url)
+            print("\n"+next_page_url+"\n")
             yield scrapy.Request(
                 next_page_url,
                 callback=self.parse
