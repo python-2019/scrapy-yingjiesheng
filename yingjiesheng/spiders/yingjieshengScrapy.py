@@ -11,7 +11,7 @@ from yingjiesheng.items import YingjieshengItem
 
 class yingjieshengScrapy(scrapy.Spider):
     """
-        小灶实习 爬虫
+        应届生求职网 爬虫
     """
     name = 'yingjiesheng'
     allowed_domains = ["yingjiesheng.com"]
