@@ -35,7 +35,7 @@ MONGO_PORT = 17017
 MONGO_DB_NAME = 'yingjiesheng'
 
 # mongo db
-MONGO_COLLECTION_NAME = 'yignjiesheng_collection'
+MONGO_COLLECTION_NAME = 'yingjiesheng_collection'
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 # USER_AGENT = 'yingjiesheng (+http://www.yourdomain.com)'
 
