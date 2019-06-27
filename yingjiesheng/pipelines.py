@@ -46,7 +46,7 @@ class YingjieshengPipeline(object):
 
     def close_spider(self, spider):
         if hasattr(YingjieshengPipeline, 'file'):
-            self.file.closed()
+            self.file.flush()
 
     def write_csv(self, arr):
         """
